@@ -1,21 +1,43 @@
 # Problem 14. Rotation Matrices
 
-## Result
+## Exercise
+
+### Exercise 14. Rotation Matrices
+The matrix for a rotation through an angle $\theta$ is
+
+$$
+R(\theta)=
+\begin{pmatrix}
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta \\
+\end{pmatrix}.
+$$
+
+Compute $R(\alpha)R(\beta)$ and, using the angle-sum formulas for sine and cosine, show that
+
+$$
+R(\alpha)R(\beta)=R(\alpha+\beta).
+$$
+
+Explain the result geometrically.
+
+> **Why this exercise:** shows the consistency between matrix algebra and the geometry of composing rotations.
+
+---
+
+## Answer
 
 $$
 R(\alpha)R(\beta)=R(\alpha+\beta)
 $$
 
-Rotating by $\beta$ and then by $\alpha$ is the same as rotating once by $\alpha+\beta$.
+Rotating by $\beta$ and then by $\alpha$ is the same as one rotation by $\alpha+\beta$.
 
-## Main Steps
+---
 
-**Multiply the matrices.** Rows of $R(\alpha)$ are $(\cos\alpha,\,-\sin\alpha)$ and $(\sin\alpha,\,\cos\alpha)$. Columns of $R(\beta)$ are $(\cos\beta,\,\sin\beta)^T$ and $(-\sin\beta,\,\cos\beta)^T$.
+## Steps
 
-- Entry $(1,1)$: $\cos\alpha\cos\beta+(-\sin\alpha)\sin\beta=\cos\alpha\cos\beta-\sin\alpha\sin\beta$.
-- Entry $(1,2)$: $\cos\alpha(-\sin\beta)+(-\sin\alpha)\cos\beta=-\cos\alpha\sin\beta-\sin\alpha\cos\beta$.
-- Entry $(2,1)$: $\sin\alpha\cos\beta+\cos\alpha\sin\beta$.
-- Entry $(2,2)$: $\sin\alpha(-\sin\beta)+\cos\alpha\cos\beta=\cos\alpha\cos\beta-\sin\alpha\sin\beta$.
+### Step 1. Multiply the matrices
 
 $$
 R(\alpha)R(\beta)=
@@ -25,21 +47,30 @@ R(\alpha)R(\beta)=
 \end{pmatrix}
 $$
 
-**Use the angle-sum formulas.** Recall
+| Entry | Computation |
+|---|---|
+| $(1,1)$ | $\cos\alpha\cos\beta+(-\sin\alpha)\sin\beta$ |
+| $(1,2)$ | $\cos\alpha(-\sin\beta)+(-\sin\alpha)\cos\beta$ |
+| $(2,1)$ | $\sin\alpha\cos\beta+\cos\alpha\sin\beta$ |
+| $(2,2)$ | $\sin\alpha(-\sin\beta)+\cos\alpha\cos\beta$ |
+
+### Step 2. Apply the angle-sum formulas
 
 $$
 \cos(\alpha+\beta)=\cos\alpha\cos\beta-\sin\alpha\sin\beta,\qquad
 \sin(\alpha+\beta)=\sin\alpha\cos\beta+\cos\alpha\sin\beta
 $$
 
-Substitute these into the matrix:
+Substitute into Step 1:
 
-- Entry $(1,1)$ is $\cos(\alpha+\beta)$.
-- Entry $(1,2)$ is $-\sin(\alpha+\beta)$.
-- Entry $(2,1)$ is $\sin(\alpha+\beta)$.
-- Entry $(2,2)$ is $\cos(\alpha+\beta)$.
+| Entry | Becomes |
+|---|---|
+| $(1,1)$ | $\cos(\alpha+\beta)$ |
+| $(1,2)$ | $-\sin(\alpha+\beta)$ |
+| $(2,1)$ | $\sin(\alpha+\beta)$ |
+| $(2,2)$ | $\cos(\alpha+\beta)$ |
 
-So
+### Step 3. Conclude
 
 $$
 R(\alpha)R(\beta)=
@@ -50,14 +81,37 @@ R(\alpha)R(\beta)=
 =R(\alpha+\beta)
 $$
 
-## Explanation
+---
 
-Geometrically, $R(\theta)$ turns every point in the plane around the origin by the angle $\theta$, counterclockwise.
+## Why it works
 
-Multiplying matrices means applying one transformation after another. So $R(\alpha)R(\beta)$ first turns by $\beta$ and then by $\alpha$. The total turn is $\alpha+\beta$, which is exactly what $R(\alpha+\beta)$ does. The matrix algebra and the geometry agree.
+$R(\theta)$ turns every point of the plane around the origin by $\theta$, counterclockwise.
 
-A consequence: rotations commute. $R(\alpha)R(\beta)=R(\beta)R(\alpha)$, because $\alpha+\beta=\beta+\alpha$. This is special to rotations; the general matrices from Problem 4 do not commute.
+Multiplying matrices means applying one transformation after another. So $R(\alpha)R(\beta)$ turns by $\beta$, then by $\alpha$. The total turn is $\alpha+\beta$. The algebra and the geometry agree.
 
-## Verification
+**Consequence:** rotations commute, because $\alpha+\beta=\beta+\alpha$. This is special to rotations. The general matrices from Problem 4 do not commute.
 
-Take $\alpha=\beta=90^\circ$. Then $R(90^\circ)$ has rows $(0,\,-1)$ and $(1,\,0)$. Squaring it gives rows $(-1,\,0)$ and $(0,\,-1)$, which is $R(180^\circ)$, since $\cos180^\circ=-1$ and $\sin180^\circ=0$. The result is consistent.
+---
+
+## Check
+
+Take $\alpha=\beta=90^\circ$. Then
+
+$$
+R(90^\circ)=
+\begin{pmatrix}
+0 & -1 \\
+1 & 0 \\
+\end{pmatrix}
+$$
+
+and its square is
+
+$$
+\begin{pmatrix}
+-1 & 0 \\
+0 & -1 \\
+\end{pmatrix}
+$$
+
+This is $R(180^\circ)$, since $\cos 180^\circ=-1$ and $\sin 180^\circ=0$. ✓

@@ -1,6 +1,29 @@
 # Problem 4. Matrix Multiplication and Noncommutativity
 
-## Result
+## Exercise
+
+### Exercise 4. Matrix Multiplication and Noncommutativity
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 \\
+0 & 1 \\
+\end{pmatrix},\qquad B=
+\begin{pmatrix}
+2 & 0 \\
+3 & 1 \\
+\end{pmatrix}
+$$
+
+compute $AB$ and $BA$. Is $AB=BA$? Use this example to explain what noncommutativity of matrix multiplication means.
+
+> **Why this exercise:** shows one of the most important differences between matrix multiplication and multiplication of numbers.
+
+---
+
+## Answer
 
 $$
 AB=
@@ -18,34 +41,57 @@ BA=
 \end{pmatrix}
 $$
 
-Since $AB\neq BA$, multiplication of these matrices is **not commutative**.
+Since $AB\neq BA$, multiplication here is **not commutative**.
 
-## Main Steps
+---
 
-**Rule.** Entry $(i,j)$ of a product is row $i$ of the first matrix times column $j$ of the second matrix: multiply matching positions and add.
+## Steps
 
-**Computing $AB$.** Rows of $A$ are $(1,\,2)$ and $(0,\,1)$. Columns of $B$ are $(2,\,3)^T$ and $(0,\,1)^T$.
+### Step 1. Rule
 
-- Row 1, column 1: $1\cdot 2+2\cdot 3=8$.
-- Row 1, column 2: $1\cdot 0+2\cdot 1=2$.
-- Row 2, column 1: $0\cdot 2+1\cdot 3=3$.
-- Row 2, column 2: $0\cdot 0+1\cdot 1=1$.
+Entry $(i,j)$ = row $i$ of the first matrix times column $j$ of the second. Multiply matching positions, then add.
 
-**Computing $BA$.** Rows of $B$ are $(2,\,0)$ and $(3,\,1)$. Columns of $A$ are $(1,\,0)^T$ and $(2,\,1)^T$.
+### Step 2. Compute $AB$
 
-- Row 1, column 1: $2\cdot 1+0\cdot 0=2$.
-- Row 1, column 2: $2\cdot 2+0\cdot 1=4$.
-- Row 2, column 1: $3\cdot 1+1\cdot 0=3$.
-- Row 2, column 2: $3\cdot 2+1\cdot 1=7$.
+Rows of $A$: $(1,\,2)$ and $(0,\,1)$. Columns of $B$: $(2,\,3)^T$ and $(0,\,1)^T$.
 
-**Comparison.** The entries in position $(1,1)$ are $8$ and $2$, which already differ. So $AB\neq BA$.
+- $(1,1)$: $1\cdot 2+2\cdot 3=8$
+- $(1,2)$: $1\cdot 0+2\cdot 1=2$
+- $(2,1)$: $0\cdot 2+1\cdot 3=3$
+- $(2,2)$: $0\cdot 0+1\cdot 1=1$
 
-## Explanation
+### Step 3. Compute $BA$
 
-For ordinary numbers, $ab=ba$ always holds. For matrices it does not, because the rows of the first matrix are combined with the columns of the second matrix. Swapping the order swaps which rows and columns meet, and the result changes.
+Rows of $B$: $(2,\,0)$ and $(3,\,1)$. Columns of $A$: $(1,\,0)^T$ and $(2,\,1)^T$.
 
-This is an important warning when you work with matrices: you cannot freely rearrange factors as you do with numbers. Always keep the order of multiplication.
+- $(1,1)$: $2\cdot 1+0\cdot 0=2$
+- $(1,2)$: $2\cdot 2+0\cdot 1=4$
+- $(2,1)$: $3\cdot 1+1\cdot 0=3$
+- $(2,2)$: $3\cdot 2+1\cdot 1=7$
 
-## Verification
+### Step 4. Compare position by position
 
-Check the trace-like sum of the diagonal entries as a quick sanity test. The diagonal of $AB$ sums to $8+1=9$, and the diagonal of $BA$ sums to $2+7=9$. The sums agree, but the matrices themselves are different. This shows that equal traces do not imply equal products, so the comparison must be made entry by entry.
+| Position | $AB$ | $BA$ | Equal? |
+|---|---|---|---|
+| $(1,1)$ | $8$ | $2$ | No |
+| $(1,2)$ | $2$ | $4$ | No |
+| $(2,1)$ | $3$ | $3$ | Yes |
+| $(2,2)$ | $1$ | $7$ | No |
+
+One mismatch is enough: $AB\neq BA$.
+
+---
+
+## Why it works
+
+For numbers, $ab=ba$ always holds. For matrices it does not. The rows of the first matrix meet the columns of the second. Swap the order and different rows and columns meet, so the result changes.
+
+**Keep the order of factors.**
+
+---
+
+## Check
+
+Diagonal sums: $AB$ gives $8+1=9$, and $BA$ gives $2+7=9$.
+
+The sums are equal, but the matrices differ. Equal traces do not prove equal products, so the comparison must be entry by entry.

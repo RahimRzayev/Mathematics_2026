@@ -1,6 +1,34 @@
 # Problem 6. Transpose
 
-## Result
+## Exercise
+
+### Exercise 6. Transpose
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+\end{pmatrix},\qquad B=
+\begin{pmatrix}
+1 & 0 \\
+2 & 1 \\
+-1 & 3 \\
+\end{pmatrix}
+$$
+
+compute $A^T$, $B^T$, and $AB$. Then verify in this example that
+
+$$
+(AB)^T=B^TA^T.
+$$
+
+> **Why this exercise:** teaches transposition and an important property that reverses the order of factors.
+
+---
+
+## Answer
 
 $$
 A^T=
@@ -8,7 +36,10 @@ A^T=
 1 & 4 \\
 2 & 5 \\
 3 & 6 \\
-\end{pmatrix},\qquad
+\end{pmatrix}
+$$
+
+$$
 B^T=
 \begin{pmatrix}
 1 & 2 & -1 \\
@@ -24,34 +55,45 @@ AB=
 \end{pmatrix}
 $$
 
-Check: $(AB)^T$ has rows $(2,\,8)$ and $(11,\,23)$, and the next section confirms that $B^TA^T$ has the same entries.
+---
 
-## Main Steps
+## Steps
 
-**Transpose.** The transpose $M^T$ is obtained by turning rows into columns: row $i$ of $M$ becomes column $i$ of $M^T$. An $m\times n$ matrix becomes $n\times m$.
+### Step 1. Transposes: rows become columns
 
-- $A$ is $2\times 3$, so $A^T$ is $3\times 2$. Its first column is the first row of $A$, which is $(1,\,2,\,3)$.
-- $B$ is $3\times 2$, so $B^T$ is $2\times 3$. Its first row is the first column of $B$, which is $(1,\,2,\,-1)$.
+- $A$ is $2\times 3$, so $A^T$ is $3\times 2$. Row 1 of $A$, $(1,\,2,\,3)$, becomes column 1 of $A^T$.
+- $B$ is $3\times 2$, so $B^T$ is $2\times 3$. Column 1 of $B$, $(1,\,2,\,-1)$, becomes row 1 of $B^T$.
 
-**Product $AB$.** $A$ is $2\times 3$ and $B$ is $3\times 2$, so $AB$ is $2\times 2$.
+### Step 2. Product $AB$ (size $2\times 2$)
 
-- Row 1 of $A$ is $(1,\,2,\,3)$. Column 1 of $B$ is $(1,\,2,\,-1)$: $1+4-3=2$. Column 2 of $B$ is $(0,\,1,\,3)$: $0+2+9=11$.
-- Row 2 of $A$ is $(4,\,5,\,6)$. Column 1 of $B$: $4+10-6=8$. Column 2 of $B$: $0+5+18=23$.
+- Row 1 of $A$ is $(1,\,2,\,3)$. With column 1 of $B$: $1+4-3=2$. With column 2 of $B$, $(0,\,1,\,3)$: $0+2+9=11$.
+- Row 2 of $A$ is $(4,\,5,\,6)$. With column 1 of $B$: $4+10-6=8$. With column 2: $0+5+18=23$.
 
-**Property check.** Compute $B^TA^T$ and compare with $(AB)^T$.
+### Step 3. Check $(AB)^T=B^TA^T$
 
-- $B^T$ has rows $(1,\,2,\,-1)$ and $(0,\,1,\,3)$. $A^T$ has columns $(1,\,2,\,3)^T$ and $(4,\,5,\,6)^T$.
-- Row 1 times column 1: $1+4-3=2$. Row 1 times column 2: $4+10-6=8$.
-- Row 2 times column 1: $0+2+9=11$. Row 2 times column 2: $0+5+18=23$.
+Compute $B^TA^T$: rows of $B^T$ are $(1,\,2,\,-1)$ and $(0,\,1,\,3)$. Columns of $A^T$ are $(1,\,2,\,3)^T$ and $(4,\,5,\,6)^T$.
 
-So $B^TA^T$ has rows $(2,\,8)$ and $(11,\,23)$, which is exactly $(AB)^T$.
+| Position | $(AB)^T$ | $B^TA^T$ | Equal? |
+|---|---|---|---|
+| $(1,1)$ | $2$ | $1+4-3=2$ | Yes |
+| $(1,2)$ | $8$ | $4+10-6=8$ | Yes |
+| $(2,1)$ | $11$ | $0+2+9=11$ | Yes |
+| $(2,2)$ | $23$ | $0+5+18=23$ | Yes |
 
-## Explanation
+---
 
-Transposing reflects the matrix across its main diagonal. The rule $(AB)^T=B^TA^T$ says that when you transpose a product, the order of the factors reverses. This happens because the rows of $AB$ are built from the rows of $A$ and the columns of $B$; after transposing, the roles are swapped and the factors must be placed in reverse order to match.
+## Why it works
 
-Remember this rule when you work with transposes: it is the transpose of the product, not the product of the transposes, that reverses the order.
+Transposing swaps rows and columns. Transposing a product **reverses the order** of the factors:
 
-## Verification
+$$
+(AB)^T=B^TA^T
+$$
 
-The two sides matched entry by entry: $(2,\,8,\,11,\,23)$ on both sides, in the same positions after transposing.
+Remember it as: **the transpose of a product**, not the product of transposes, reverses the order.
+
+---
+
+## Check
+
+All four entries match in the table above. ✓

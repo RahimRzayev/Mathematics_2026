@@ -1,6 +1,35 @@
 # Problem 2. Addition and Scalar Multiplication
 
-## Result
+## Exercise
+
+### Exercise 2. Addition and Scalar Multiplication
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 \\
+-1 & 3 \\
+\end{pmatrix},\qquad B=
+\begin{pmatrix}
+4 & -2 \\
+0 & 5 \\
+\end{pmatrix}
+$$
+
+compute
+
+$$
+A+B,\qquad A-B,\qquad 3A-2B.
+$$
+
+Explain why matrix addition is possible only for matrices of the same size.
+
+> **Why this exercise:** reinforces entry-by-entry operations and the importance of compatible dimensions.
+
+---
+
+## Answer
 
 $$
 A+B=
@@ -26,16 +55,20 @@ $$
 \end{pmatrix}
 $$
 
-## Main Steps
+---
 
-**Addition and subtraction.** Add or subtract the entries in the same position.
+## Steps
 
-- Top-left: $1+4=5$, and $1-4=-3$.
-- Top-right: $2+(-2)=0$, and $2-(-2)=4$.
-- Bottom-left: $-1+0=-1$, and $-1-0=-1$.
-- Bottom-right: $3+5=8$, and $3-5=-2$.
+### Step 1. Add and subtract position by position
 
-**Scalar multiplication.** Multiply every entry by the number.
+| Position | $A+B$ | $A-B$ |
+|---|---|---|
+| top-left | $1+4=5$ | $1-4=-3$ |
+| top-right | $2+(-2)=0$ | $2-(-2)=4$ |
+| bottom-left | $-1+0=-1$ | $-1-0=-1$ |
+| bottom-right | $3+5=8$ | $3-5=-2$ |
+
+### Step 2. Scalar multiples
 
 $$
 3A=
@@ -50,19 +83,24 @@ $$
 \end{pmatrix}
 $$
 
-**Combining.** Subtract $2B$ from $3A$, entry by entry.
+### Step 3. Combine into $3A-2B$
 
-- Top-left: $3-8=-5$.
-- Top-right: $6-(-4)=10$.
-- Bottom-left: $-3-0=-3$.
-- Bottom-right: $9-10=-1$.
+| Position | $3A$ | $2B$ | $3A-2B$ |
+|---|---|---|---|
+| top-left | $3$ | $8$ | $-5$ |
+| top-right | $6$ | $-4$ | $10$ |
+| bottom-left | $-3$ | $0$ | $-3$ |
+| bottom-right | $9$ | $10$ | $-1$ |
 
-## Explanation
+---
 
-Matrix addition works like adding numbers, but position by position. Each entry of $A+B$ is the sum of the entries in the same place of $A$ and $B$. That is why the matrices must have **the same size**: if one matrix has an entry in a position where the other has none, there is nothing to add.
+## Why it works
 
-Scalar multiplication is even simpler: the number multiplies each entry separately. The expression $3A-2B$ is just two scalar multiplications followed by one subtraction.
+- **Addition** works position by position. Both matrices need **the same size**, because an entry with no partner has nothing to add to.
+- **Scalar multiplication** multiplies every entry by the number.
 
-## Verification
+---
 
-Check one entry of $3A-2B$ in a different way. Its bottom-right entry comes from $3\cdot 3-2\cdot 5=9-10=-1$. This matches the value found above.
+## Check
+
+Bottom-right of $3A-2B$, computed directly: $3\cdot 3-2\cdot 5=9-10=-1$. ✓ Matches Step 3.

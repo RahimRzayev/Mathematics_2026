@@ -1,6 +1,34 @@
 # Problem 15. Associativity of Multiplication and Different Calculation Paths
 
-## Result
+## Exercise
+
+### Exercise 15. Associativity of Multiplication and Different Calculation Paths
+Given
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 & 0 \\
+0 & 1 & 1 \\
+\end{pmatrix},\quad B=
+\begin{pmatrix}
+1 & 0 \\
+2 & 1 \\
+-1 & 3 \\
+\end{pmatrix},\quad C=
+\begin{pmatrix}
+2 & 1 \\
+0 & -1 \\
+\end{pmatrix}.
+$$
+
+Compute $(AB)C$ and $A(BC)$. Compare the results and the number of intermediate operations. Explain what associativity of matrix multiplication means in this example.
+
+> **Why this exercise:** reinforces associativity by comparing two mathematically equivalent calculation paths.
+
+---
+
+## Answer
 
 $$
 (AB)C=A(BC)=
@@ -10,16 +38,13 @@ $$
 \end{pmatrix}
 $$
 
-Both paths give the same matrix, as associativity predicts.
+Both paths give the same matrix, as associativity predicts. The paths differ in cost.
 
-## Main Steps
+---
 
-**Path 1: compute $AB$ first, then $(AB)C$.**
+## Steps
 
-$AB$: rows of $A$ are $(1,\,2,\,0)$ and $(0,\,1,\,1)$. Columns of $B$ are $(1,\,2,\,-1)^T$ and $(0,\,1,\,3)^T$.
-
-- Row 1: $1+4+0=5$ and $0+2+0=2$.
-- Row 2: $0+2-1=1$ and $0+1+3=4$.
+### Step 1. Path 1: $AB$ first, then $(AB)C$
 
 $$
 AB=
@@ -29,10 +54,8 @@ AB=
 \end{pmatrix}
 $$
 
-$(AB)C$: rows of $AB$ are $(5,\,2)$ and $(1,\,4)$. Columns of $C$ are $(2,\,0)^T$ and $(1,\,-1)^T$.
-
-- Row 1: $5\cdot2+2\cdot0=10$ and $5\cdot1+2\cdot(-1)=3$.
-- Row 2: $1\cdot2+4\cdot0=2$ and $1\cdot1+4\cdot(-1)=-3$.
+- Row 1 of $A$, $(1,\,2,\,0)$: with column 1 of $B$ gives $1+4+0=5$; with column 2 gives $0+2+0=2$.
+- Row 2 of $A$, $(0,\,1,\,1)$: with column 1 gives $0+2-1=1$; with column 2 gives $0+1+3=4$.
 
 $$
 (AB)C=
@@ -42,13 +65,10 @@ $$
 \end{pmatrix}
 $$
 
-**Path 2: compute $BC$ first, then $A(BC)$.**
+- Row 1, $(5,\,2)$: $5\cdot 2+2\cdot 0=10$ and $5\cdot 1+2\cdot(-1)=3$.
+- Row 2, $(1,\,4)$: $1\cdot 2+4\cdot 0=2$ and $1\cdot 1+4\cdot(-1)=-3$.
 
-$BC$: rows of $B$ are $(1,\,0)$, $(2,\,1)$, $(-1,\,3)$. Columns of $C$ are $(2,\,0)^T$ and $(1,\,-1)^T$.
-
-- Row 1: $2$ and $1$.
-- Row 2: $4$ and $2-1=1$.
-- Row 3: $-2$ and $-1-3=-4$.
+### Step 2. Path 2: $BC$ first, then $A(BC)$
 
 $$
 BC=
@@ -59,10 +79,9 @@ BC=
 \end{pmatrix}
 $$
 
-$A(BC)$: rows of $A$ are $(1,\,2,\,0)$ and $(0,\,1,\,1)$. Columns of $BC$ are $(2,\,4,\,-2)^T$ and $(1,\,1,\,-4)^T$.
-
-- Row 1: $2+8+0=10$ and $1+2+0=3$.
-- Row 2: $0+4-2=2$ and $0+1-4=-3$.
+- Row 1 of $B$, $(1,\,0)$: $2$ and $1$.
+- Row 2 of $B$, $(2,\,1)$: $4$ and $2-1=1$.
+- Row 3 of $B$, $(-1,\,3)$: $-2$ and $-1-3=-4$.
 
 $$
 A(BC)=
@@ -72,21 +91,34 @@ A(BC)=
 \end{pmatrix}
 $$
 
-**Comparison.** Both paths give the same $2\times 2$ matrix.
+- Row 1 of $A$, $(1,\,2,\,0)$: with $(2,\,4,\,-2)^T$ gives $2+8=10$; with $(1,\,1,\,-4)^T$ gives $1+2=3$.
+- Row 2 of $A$, $(0,\,1,\,1)$: $4-2=2$ and $1-4=-3$.
 
-**Number of multiplications.** Count each product of two numbers.
+### Step 3. Compare the cost
 
-- Path 1: $AB$ is $2\times 2$ with inner size 3, so $4\cdot 3=12$ multiplications. $(AB)C$ is $2\times 2$ with inner size 2, so $4\cdot 2=8$. Total: $20$.
-- Path 2: $BC$ is $3\times 2$ with inner size 2, so $6\cdot 2=12$ multiplications. $A(BC)$ is $2\times 2$ with inner size 3, so $4\cdot 3=12$. Total: $24$.
+Count the multiplications of two numbers. A product of size $p\times q$ with inner size $r$ needs $p\cdot q\cdot r$.
 
-## Explanation
+| Path | Product | Size | Inner size | Multiplications |
+|---|---|---|---|---|
+| 1 | $AB$ | $2\times 2$ | $3$ | $12$ |
+| 1 | $(AB)C$ | $2\times 2$ | $2$ | $8$ |
+| | | | **Path 1 total** | **20** |
+| 2 | $BC$ | $3\times 2$ | $2$ | $12$ |
+| 2 | $A(BC)$ | $2\times 2$ | $3$ | $12$ |
+| | | | **Path 2 total** | **24** |
 
-**Associativity** says that $(XY)Z=X(YZ)$. The grouping of the factors does not change the answer, so we may choose whichever grouping is convenient.
+---
 
-In this example, both paths give the same matrix. But they do not cost the same work. Path 1 needs $20$ multiplications and Path 2 needs $24$. When matrices are large, choosing a good grouping can save a lot of time, and this is a real concern in computer calculations.
+## Why it works
 
-Note the difference between associativity and commutativity from Problem 4. Associativity lets us *regroup* factors, but it keeps their *order*. Commutativity would let us change the order, and matrix multiplication does not allow that in general.
+**Associativity** says $(XY)Z=X(YZ)$. Regrouping does not change the answer, so pick the cheaper grouping.
 
-## Verification
+Here Path 1 costs $20$ multiplications and Path 2 costs $24$. For large matrices, grouping matters a lot in computer calculations.
 
-Both paths produced the same matrix entry by entry, so the associativity identity holds for this example.
+Compare with Problem 4: associativity lets you **regroup** factors but keeps their **order**. Commutativity would let you change the order, and matrix multiplication does not allow that in general.
+
+---
+
+## Check
+
+Both paths gave the same matrix entry by entry. ✓

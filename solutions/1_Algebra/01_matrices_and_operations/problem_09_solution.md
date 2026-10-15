@@ -1,25 +1,53 @@
 # Problem 9. Composing Transformations
 
-## Result
+## Exercise
+
+### Exercise 9. Composing Transformations
+Let
 
 $$
-RSx=
+S=
 \begin{pmatrix}
--2 \\
-2 \\
-\end{pmatrix},\qquad
-SRx=
+2 & 0 \\
+0 & 1 \\
+\end{pmatrix},\qquad R=
 \begin{pmatrix}
--4 \\
+0 & -1 \\
+1 & 0 \\
+\end{pmatrix}.
+$$
+
+The matrix $S$ describes nonuniform scaling, while $R$ describes a $90^\circ$ counterclockwise rotation.
+For
+
+$$
+x=
+\begin{pmatrix}
 1 \\
+2 \\
 \end{pmatrix}
 $$
 
-The two results differ, so the order of the transformations matters.
+compute $RSx$ and $SRx$. Compare the results and explain geometrically why the order of these transformations matters.
 
-## Main Steps
+> **Why this exercise:** interprets matrix multiplication as composition of transformations.
 
-**Apply $S$ first, then $R$ (this is $RSx$).**
+---
+
+## Answer
+
+| Product | Meaning | Result |
+|---|---|---|
+| $RSx$ | apply $S$ first, then $R$ | $(-2,\ 2)^T$ |
+| $SRx$ | apply $R$ first, then $S$ | $(-4,\ 1)^T$ |
+
+The results differ, so **the order of the transformations matters**.
+
+---
+
+## Steps
+
+### Step 1. $RSx$: apply $S$ first, then $R$
 
 $$
 Sx=
@@ -48,16 +76,12 @@ R(Sx)=
 2 \\
 \end{pmatrix}=
 \begin{pmatrix}
-0\cdot 2-1\cdot 2 \\
-1\cdot 2+0\cdot 2 \\
-\end{pmatrix}=
-\begin{pmatrix}
 -2 \\
 2 \\
 \end{pmatrix}
 $$
 
-**Apply $R$ first, then $S$ (this is $SRx$).**
+### Step 2. $SRx$: apply $R$ first, then $S$
 
 $$
 Rx=
@@ -91,18 +115,26 @@ S(Rx)=
 \end{pmatrix}
 $$
 
-**Comparison.** $(-2,\,2)\neq(-4,\,1)$.
+### Step 3. Compare
 
-## Explanation
+$(-2,\,2)\neq(-4,\,1)$
 
-- $S$ doubles the $x$-coordinate and leaves the $y$-coordinate alone. It stretches shapes horizontally.
+---
+
+## Why it works
+
+- $S$ doubles the $x$-coordinate and keeps the $y$-coordinate. It stretches shapes horizontally.
 - $R$ rotates every vector by $90^\circ$ counterclockwise.
 
-When we scale first and rotate second, the stretch happens along the original $x$-axis, and then the whole picture turns. When we rotate first, the vector points in a new direction, and then the stretch acts along the *original* $x$-axis, which now affects a different part of the vector. Because the stretch acts on different directions in the two cases, the final points differ.
+**Scale then rotate:** the stretch acts on the original $x$-axis, then the picture turns.
 
-In short: **the order of transformations matters, just as the order of matrices matters**. Matrix multiplication is the composition of transformations, and composition is generally not commutative.
+**Rotate then scale:** the vector first points in a new direction, so the stretch hits a different part of it.
 
-## Verification
+Matrix multiplication is composition of transformations, and composition is generally not commutative.
+
+---
+
+## Check
 
 Multiply the matrices first:
 
@@ -119,4 +151,4 @@ SR=
 \end{pmatrix}
 $$
 
-Then $RS\,x=(0\cdot1-1\cdot2,\ 2\cdot1+0\cdot2)=(-2,\,2)$ and $SR\,x=(0\cdot1-2\cdot2,\ 1\cdot1+0\cdot2)=(-4,\,1)$. These agree with the step-by-step results.
+Then $RS\,x=(-2,\,2)^T$ and $SR\,x=(-4,\,1)^T$. Both match the step-by-step results. ✓

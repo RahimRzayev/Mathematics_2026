@@ -1,7 +1,8 @@
 # Problem 7. Identity Matrix, Zero Matrix, and Powers
 
-## Result
+## Exercise
 
+### Exercise 7. Identity Matrix, Zero Matrix, and Powers
 For
 
 $$
@@ -12,10 +13,22 @@ A=
 \end{pmatrix}
 $$
 
-we have
+compute
 
 $$
-AI = IA = A,\qquad A+0 = A
+AI,\qquad IA,\qquad A+0,\qquad A^2,\qquad A^3.
+$$
+
+Explain the roles of the matrices $I$ and $0$, and describe the pattern you observe in successive powers of $A$.
+
+> **Why this exercise:** organizes the roles of neutral elements and reveals regularity in successive powers of a matrix.
+
+---
+
+## Answer
+
+$$
+AI=IA=A,\qquad A+0=A
 $$
 
 $$
@@ -31,9 +44,11 @@ A^3=
 \end{pmatrix}
 $$
 
-## Main Steps
+---
 
-**Identity matrix.** $I$ is the matrix with 1 on the diagonal and 0 elsewhere:
+## Steps
+
+### Step 1. Identity and zero matrices
 
 $$
 I=
@@ -43,36 +58,40 @@ I=
 \end{pmatrix}
 $$
 
-- $AI$: each row of $A$ times the columns of $I$ returns the same row, so $AI=A$.
-- $IA$: each column of $A$ is picked out unchanged, so $IA=A$.
+| Expression | Result | Why |
+|---|---|---|
+| $AI$ | $A$ | $I$ leaves each row unchanged |
+| $IA$ | $A$ | $I$ leaves each column unchanged |
+| $A+0$ | $A$ | adding zeros changes nothing |
 
-**Zero matrix.** $0$ has all entries equal to 0. Adding it changes nothing: $A+0=A$.
+### Step 2. Square: $A^2=A\cdot A$
 
-**Square.** $A^2=A\cdot A$.
+- Row 1, $(2,\,1)$, with columns $(2,\,0)^T$ and $(1,\,2)^T$: $2\cdot 2+1\cdot 0=4$ and $2\cdot 1+1\cdot 2=4$.
+- Row 2, $(0,\,2)$: $0\cdot 2+2\cdot 0=0$ and $0\cdot 1+2\cdot 2=4$.
 
-- Row 1 $(2,\,1)$ with columns $(2,\,0)^T$ and $(1,\,2)^T$: $2\cdot 2+1\cdot 0=4$ and $2\cdot 1+1\cdot 2=4$.
-- Row 2 $(0,\,2)$ with the same columns: $0\cdot 2+2\cdot 0=0$ and $0\cdot 1+2\cdot 2=4$.
+### Step 3. Cube: $A^3=A^2\cdot A$
 
-**Cube.** $A^3=A^2\cdot A$.
+- Row 1, $(4,\,4)$: $8$ and $4+8=12$.
+- Row 2, $(0,\,4)$: $0$ and $8$.
 
-- Row 1 $(4,\,4)$ with columns $(2,\,0)^T$ and $(1,\,2)^T$: $8$ and $4+8=12$.
-- Row 2 $(0,\,4)$: $0$ and $8$.
+---
 
-## Explanation
+## Why it works
 
-$I$ is the **neutral element** for multiplication, just as $1$ is for numbers. $0$ is the neutral element for addition, just as $0$ is for numbers.
+- $I$ is the **neutral element for multiplication**, like $1$ for numbers.
+- $0$ is the **neutral element for addition**, like $0$ for numbers.
 
-The pattern in the powers comes from writing $A$ as a sum of two matrices:
+**The pattern.** Split $A$ into two parts:
 
 $$
-A = 2I + N,\qquad N=
+A=2I+N,\qquad N=
 \begin{pmatrix}
 0 & 1 \\
 0 & 0 \\
-\end{pmatrix}
+\end{pmatrix},\qquad N^2=0
 $$
 
-Here $N^2=0$. Then the powers of $A$ follow the pattern
+This gives the general formula:
 
 $$
 A^n=
@@ -82,8 +101,13 @@ A^n=
 \end{pmatrix}
 $$
 
-This matches what we computed: for $n=2$ we get the matrix with rows $(4,\,4)$ and $(0,\,4)$, and for $n=3$ we get rows $(8,\,12)$ and $(0,\,8)$. The diagonal entries double each time, and the top-right entry grows in a predictable way.
+The diagonal doubles each time, and the top-right entry grows in a predictable way.
 
-## Verification
+---
 
-The formula for $A^n$ gives the same values for $n=2$ and $n=3$ as the direct multiplication above.
+## Check
+
+The formula gives the same values as the direct multiplication:
+
+- $n=2$: $2^2=4$ and $2\cdot 2^{1}=4$. ✓
+- $n=3$: $2^3=8$ and $3\cdot 2^{2}=12$. ✓

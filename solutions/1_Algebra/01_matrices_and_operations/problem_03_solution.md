@@ -1,43 +1,69 @@
 # Problem 3. When Can Matrices Be Multiplied?
 
-## Result
+## Exercise
+
+### Exercise 3. When Can Matrices Be Multiplied?
+The matrix sizes are
+
+$$
+A_{2\times3},\qquad B_{3\times4},\qquad C_{4\times2},\qquad D_{2\times2}.
+$$
+
+For the products
+
+$$
+AB,\ BA,\ BC,\ CB,\ AC,\ CA,\ AD,\ DA
+$$
+
+determine whether they are defined. If so, state the size of the result. Justify each decision using the dimension compatibility condition.
+
+> **Why this exercise:** forces an understanding of dimension compatibility before carrying out any calculation.
+
+---
+
+## Answer
 
 Sizes: $A$ is $2\times 3$, $B$ is $3\times 4$, $C$ is $4\times 2$, $D$ is $2\times 2$.
 
-| Product | Defined? | Size of result |
-|---|---|---|
-| $AB$ | Yes | $2\times 4$ |
-| $BA$ | No | — |
-| $BC$ | Yes | $3\times 2$ |
-| $CB$ | No | — |
-| $AC$ | No | — |
-| $CA$ | Yes | $4\times 3$ |
-| $AD$ | No | — |
-| $DA$ | Yes | $2\times 3$ |
+| Product | Inner pair | Defined? | Size of result |
+|---|---|---|---|
+| $AB$ | $3$ and $3$ | Yes | $2\times 4$ |
+| $BA$ | $4$ and $2$ | No | — |
+| $BC$ | $4$ and $4$ | Yes | $3\times 2$ |
+| $CB$ | $2$ and $3$ | No | — |
+| $AC$ | $3$ and $4$ | No | — |
+| $CA$ | $2$ and $2$ | Yes | $4\times 3$ |
+| $AD$ | $3$ and $2$ | No | — |
+| $DA$ | $2$ and $2$ | Yes | $2\times 3$ |
 
-## Main Steps
+---
 
-**The rule.** For a product $XY$ to exist, the number of **columns of $X$** must equal the number of **rows of $Y$**. If the sizes are $m\times n$ and $p\times q$, the product exists only when $n=p$, and then the result has size $m\times q$.
+## Steps
 
-Write the sizes side by side and compare the inner numbers.
+### Step 1. Apply the rule
 
-- $AB$: $A$ is $2\times 3$, $B$ is $3\times 4$. Inner numbers: $3$ and $3$. Equal, so $AB$ exists and has size $2\times 4$.
-- $BA$: $B$ is $3\times 4$, $A$ is $2\times 3$. Inner numbers: $4$ and $2$. Not equal, so $BA$ is not defined.
-- $BC$: $B$ is $3\times 4$, $C$ is $4\times 2$. Inner numbers: $4$ and $4$. Equal, so $BC$ exists and has size $3\times 2$.
-- $CB$: $C$ is $4\times 2$, $B$ is $3\times 4$. Inner numbers: $2$ and $3$. Not equal, so $CB$ is not defined.
-- $AC$: $A$ is $2\times 3$, $C$ is $4\times 2$. Inner numbers: $3$ and $4$. Not equal, so $AC$ is not defined.
-- $CA$: $C$ is $4\times 2$, $A$ is $2\times 3$. Inner numbers: $2$ and $2$. Equal, so $CA$ exists and has size $4\times 3$.
-- $AD$: $A$ is $2\times 3$, $D$ is $2\times 2$. Inner numbers: $3$ and $2$. Not equal, so $AD$ is not defined.
-- $DA$: $D$ is $2\times 2$, $A$ is $2\times 3$. Inner numbers: $2$ and $2$. Equal, so $DA$ exists and has size $2\times 3$.
+For $XY$ to exist:
 
-## Explanation
+- **Inner pair:** columns of $X$ must equal rows of $Y$.
+- **Size of $XY$:** rows of $X$ by columns of $Y$. The outer numbers give the answer.
 
-The product $XY$ is built from **rows of $X$** and **columns of $Y$**. Each entry of the result is a row times a column, which needs both to have the same length. That length is the inner number. The outer numbers tell you the size of the answer.
+### Step 2. Worked examples
 
-A helpful picture: the shapes must "fit together" in the middle, and the outside sizes remain as the result.
+- $AB$: inner pair $3$ and $3$ match. Defined. Size $2\times 4$.
+- $BA$: inner pair $4$ and $2$ differ. Not defined.
 
-Notice that a product can exist in one order and not in the other. For example, $AB$ exists but $BA$ does not. So matrix multiplication is not only non-commutative; it may not even be possible to reverse the order.
+Write the two sizes side by side, then compare the inner numbers.
 
-## Verification
+---
 
-Use the rule "outer sizes give the answer" on the defined products. For $AB$, the outer sizes are $2$ and $4$, giving $2\times 4$. For $DA$, the outer sizes are $2$ and $3$, giving $2\times 3$. These match the table.
+## Why it works
+
+Each entry of $XY$ is a row of $X$ times a column of $Y$. Both must have the same length, and that length is the inner number.
+
+A product can exist in one order and not the other. $AB$ exists, but $BA$ does not. So matrix multiplication is not just non-commutative: the order may not be reversible at all.
+
+---
+
+## Check
+
+Outer sizes of $DA$: $2$ and $3$, giving $2\times 3$. This matches the table. ✓

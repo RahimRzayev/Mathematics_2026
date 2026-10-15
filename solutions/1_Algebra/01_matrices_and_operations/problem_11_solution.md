@@ -1,8 +1,9 @@
 # Problem 11. When Do Matrices Commute?
 
-## Result
+## Exercise
 
-Let
+### Exercise 11. When Do Matrices Commute?
+Given
 
 $$
 A=
@@ -16,13 +17,17 @@ c & d \\
 \end{pmatrix}.
 $$
 
-$AB=BA$ exactly when
+Find the conditions on $a,b,c,d$ under which $AB=BA$. Describe the general form of all such matrices $B$.
 
-$$
-c=0 \quad \mathrm{and} \quad d=a
-$$
+> **Why this exercise:** deepens the idea of noncommutativity by finding the conditions under which commutativity does hold.
 
-with $a$ and $b$ arbitrary. So all matrices that commute with $A$ have the form
+---
+
+## Answer
+
+$AB=BA$ exactly when $c=0$ and $d=a$. The entry $b$ is free.
+
+So every matrix that commutes with $A$ has this form:
 
 $$
 B=
@@ -32,12 +37,11 @@ a & b \\
 \end{pmatrix}
 $$
 
-## Main Steps
+---
 
-**Compute $AB$.** Rows of $A$ are $(1,\,1)$ and $(0,\,1)$. Columns of $B$ are $(a,\,c)^T$ and $(b,\,d)^T$.
+## Steps
 
-- Row 1: $1\cdot a+1\cdot c=a+c$, and $1\cdot b+1\cdot d=b+d$.
-- Row 2: $0\cdot a+1\cdot c=c$, and $0\cdot b+1\cdot d=d$.
+### Step 1. Compute $AB$
 
 $$
 AB=
@@ -47,10 +51,9 @@ c & d \\
 \end{pmatrix}
 $$
 
-**Compute $BA$.** Rows of $B$ are $(a,\,b)$ and $(c,\,d)$. Columns of $A$ are $(1,\,0)^T$ and $(1,\,1)^T$.
+Row 1 of $A$ is $(1,\,1)$, so row 1 of $AB$ is the sum of the rows of $B$. Row 2 of $A$ is $(0,\,1)$, so row 2 of $AB$ is row 2 of $B$.
 
-- Row 1: $a\cdot1+b\cdot0=a$, and $a\cdot1+b\cdot1=a+b$.
-- Row 2: $c\cdot1+d\cdot0=c$, and $c\cdot1+d\cdot1=c+d$.
+### Step 2. Compute $BA$
 
 $$
 BA=
@@ -60,20 +63,26 @@ c & c+d \\
 \end{pmatrix}
 $$
 
-**Compare entry by entry.**
+Column 1 of $A$ is $(1,\,0)^T$, so column 1 of $BA$ is column 1 of $B$. Column 2 of $A$ is $(1,\,1)^T$, so column 2 of $BA$ is the sum of the columns of $B$.
 
-- Position $(1,1)$: $a+c=a$, so $c=0$.
-- Position $(1,2)$: $b+d=a+b$, so $d=a$.
-- Position $(2,1)$: $c=c$, always true.
-- Position $(2,2)$: $d=c+d$, so $c=0$ again.
+### Step 3. Compare entry by entry
+
+| Position | $AB$ | $BA$ | Condition |
+|---|---|---|---|
+| $(1,1)$ | $a+c$ | $a$ | $c=0$ |
+| $(1,2)$ | $b+d$ | $a+b$ | $d=a$ |
+| $(2,1)$ | $c$ | $c$ | always true |
+| $(2,2)$ | $d$ | $c+d$ | $c=0$ |
 
 The conditions are $c=0$ and $d=a$. The entry $b$ is free.
 
-## Explanation
+---
 
-Commuting means that $A$ and $B$ "work well together" in both orders. Here the matrix $A$ is a shear: it slides the top row sideways and leaves the bottom row alone. For $B$ to commute with it, $B$ must have a zero in the bottom-left corner, so that $B$ keeps the bottom row fixed in the same way $A$ does, and its two diagonal entries must be equal.
+## Why it works
 
-The free entry $b$ corresponds to the matrix
+$A$ is a **shear**: it slides the top row sideways and leaves the bottom row alone. For $B$ to commute with it, $B$ must keep the bottom row fixed in the same way. That forces $c=0$, and equal diagonal entries $d=a$.
+
+The free entry $b$ gives the matrix
 
 $$
 \begin{pmatrix}
@@ -82,10 +91,37 @@ $$
 \end{pmatrix}
 $$
 
-which is itself a "sideways slide". Sliding in either order gives the same result, so it commutes with $A$.
+This is another sideways slide. Sliding in either order gives the same result, so it commutes with $A$.
 
-## Verification
+---
 
-Test a specific choice. Take $a=2$, $b=5$, $c=0$, $d=2$, so $B$ has rows $(2,\,5)$ and $(0,\,2)$. Then $AB$ and $BA$ both have rows $(2,\,7)$ and $(0,\,2)$, so they are equal.
+## Check
 
-Now take $c=1$ (violating the condition), keeping $a=2$, $b=5$, $d=2$. Then $AB$ has rows $(3,\,7)$ and $(1,\,2)$, while $BA$ has rows $(2,\,7)$ and $(1,\,3)$. They differ, as predicted.
+**Condition holds:** $a=2$, $b=5$, $c=0$, $d=2$. Then
+
+$$
+AB=BA=
+\begin{pmatrix}
+2 & 7 \\
+0 & 2 \\
+\end{pmatrix}
+$$
+
+Equal. ✓
+
+**Condition broken:** same, but $c=1$. Then
+
+$$
+AB=
+\begin{pmatrix}
+3 & 7 \\
+1 & 2 \\
+\end{pmatrix},\qquad
+BA=
+\begin{pmatrix}
+2 & 7 \\
+1 & 3 \\
+\end{pmatrix}
+$$
+
+Different, as predicted. ✓
