@@ -53,7 +53,7 @@ Therefore $w=(2,-1,0)$.
 The dot product and the angle $\theta$ between two vectors are related by
 
 $$
-u\cdot v=\|u\|\,\|v\|\cos\theta
+u\cdot v=\Vert u\Vert\ \Vert v\Vert\cos\theta
 $$
 
 For nonzero vectors the lengths are positive, so the dot product vanishes exactly when $\cos\theta=0$, that is, when $\theta=90^\circ$.
@@ -75,10 +75,10 @@ $$
 u\cdot w=(1,2,-1)\cdot(2,-1,0)=2-2+0=0\ \checkmark
 $$
 
-The first result is consistent with the angle formula. Here $\|u\|=\sqrt6$ and $\|v\|=\sqrt{14}$, so
+The first result is consistent with the angle formula. Here $\Vert u\Vert=\sqrt6$ and $\Vert v\Vert=\sqrt{14}$, so
 
 $$
-\cos\theta=\frac{-3}{\sqrt6\,\sqrt{14}}=\frac{-3}{\sqrt{84}}\approx-0.327
+\cos\theta=\frac{-3}{\sqrt6\ \sqrt{14}}=\frac{-3}{\sqrt{84}}\approx-0.327
 $$
 
 The cosine is negative and nonzero, so the angle is obtuse and is not $90^\circ$ ✓.

@@ -41,13 +41,13 @@ $$
 The area equals the length of the cross product:
 
 $$
-S_{\mathrm{par}}=\|\overrightarrow{AB}\times\overrightarrow{AC}\|=\sqrt{2^2+(-4)^2+5^2}=\sqrt{45}=3\sqrt5
+S_{\mathrm{par}}=\Vert\overrightarrow{AB}\times\overrightarrow{AC}\Vert=\sqrt{2^2+(-4)^2+5^2}=\sqrt{45}=3\sqrt5
 $$
 
 ### Step 4. Area of the triangle
 
 $$
-S_{\mathrm{tri}}=\frac12\,S_{\mathrm{par}}=\frac{3\sqrt5}{2}
+S_{\mathrm{tri}}=\frac12\ S_{\mathrm{par}}=\frac{3\sqrt5}{2}
 $$
 
 ---
@@ -57,10 +57,10 @@ $$
 **Length of the cross product as area.** For vectors $a$ and $b$ with angle $\theta$ between them,
 
 $$
-\|a\times b\|=\|a\|\,\|b\|\sin\theta
+\Vert a\times b\Vert=\Vert a\Vert\ \Vert b\Vert\sin\theta
 $$
 
-A parallelogram with sides $a$ and $b$ has base $\|a\|$ and height $\|b\|\sin\theta$. The product of base and height is exactly the length of the cross product.
+A parallelogram with sides $a$ and $b$ has base $\Vert a\Vert$ and height $\Vert b\Vert\sin\theta$. The product of base and height is exactly the length of the cross product.
 
 **The factor $\frac12$.** The parallelogram built on $\overrightarrow{AB}$ and $\overrightarrow{AC}$ has vertices $A$, $B$, $D$, $C$, where $D=B+C-A$. The diagonal $BC$ divides it into the triangles $ABC$ and $DCB$. These triangles have equal corresponding sides, so they are congruent and have equal areas. Each therefore occupies half of the parallelogram.
 
@@ -74,10 +74,10 @@ $$
 (2,-4,5)\cdot(2,1,0)=4-4+0=0\ \checkmark,\qquad (2,-4,5)\cdot(1,3,2)=2-12+10=0\ \checkmark
 $$
 
-The area can also be computed without the cross product, from lengths and the dot product. With $\|\overrightarrow{AB}\|^2=5$, $\|\overrightarrow{AC}\|^2=14$, and $\overrightarrow{AB}\cdot\overrightarrow{AC}=5$,
+The area can also be computed without the cross product, from lengths and the dot product. With $\Vert\overrightarrow{AB}\Vert^2=5$, $\Vert\overrightarrow{AC}\Vert^2=14$, and $\overrightarrow{AB}\cdot\overrightarrow{AC}=5$,
 
 $$
-S_{\mathrm{par}}^2=\|\overrightarrow{AB}\|^2\|\overrightarrow{AC}\|^2-(\overrightarrow{AB}\cdot\overrightarrow{AC})^2=5\cdot14-5^2=45
+S_{\mathrm{par}}^2=\Vert\overrightarrow{AB}\Vert^2\Vert\overrightarrow{AC}\Vert^2-(\overrightarrow{AB}\cdot\overrightarrow{AC})^2=5\cdot14-5^2=45
 $$
 
 This agrees with $S_{\mathrm{par}}=\sqrt{45}=3\sqrt5$ ✓.

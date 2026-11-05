@@ -91,13 +91,13 @@ The same cancellation occurs for $v$.
 
 ## Check
 
-The length of $u\times v$ must agree with the identity $\|u\times v\|^2=\|u\|^2\|v\|^2-(u\cdot v)^2$. The left-hand side is
+The length of $u\times v$ must agree with the identity $\Vert u\times v\Vert^2=\Vert u\Vert^2\Vert v\Vert^2-(u\cdot v)^2$. The left-hand side is
 
 $$
-\|u\times v\|^2=36+9+1=46
+\Vert u\times v\Vert^2=36+9+1=46
 $$
 
-With $\|u\|^2=5$, $\|v\|^2=10$, and $u\cdot v=2$, the right-hand side is
+With $\Vert u\Vert^2=5$, $\Vert v\Vert^2=10$, and $u\cdot v=2$, the right-hand side is
 
 $$
 5\cdot10-2^2=50-4=46\ \checkmark

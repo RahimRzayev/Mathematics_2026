@@ -15,9 +15,9 @@ Given $u=(1,1,0)$ and $v=(1,0,1)$:
 
 ## Answer
 
-- Prediction: $u\cdot v=1>0$, so the angle is acute.
+- Prediction: $u\cdot v=1\gt0$, so the angle is acute.
 - Exact value: $\theta=\frac{\pi}{3}=60^\circ$.
-- Comparison: $60^\circ<90^\circ$, so the prediction is correct.
+- Comparison: $60^\circ\lt90^\circ$, so the prediction is correct.
 
 ---
 
@@ -34,13 +34,13 @@ A positive dot product means an acute angle.
 ### Step 2. Lengths of the vectors
 
 $$
-\|u\|=\sqrt{1^2+1^2+0^2}=\sqrt2,\qquad \|v\|=\sqrt{1^2+0^2+1^2}=\sqrt2
+\Vert u\Vert=\sqrt{1^2+1^2+0^2}=\sqrt2,\qquad \Vert v\Vert=\sqrt{1^2+0^2+1^2}=\sqrt2
 $$
 
 ### Step 3. Cosine of the angle
 
 $$
-\cos\theta=\frac{u\cdot v}{\|u\|\,\|v\|}=\frac{1}{\sqrt2\cdot\sqrt2}=\frac12
+\cos\theta=\frac{u\cdot v}{\Vert u\Vert\ \Vert v\Vert}=\frac{1}{\sqrt2\cdot\sqrt2}=\frac12
 $$
 
 ### Step 4. The angle
@@ -53,19 +53,19 @@ $$
 
 ### Step 5. Comparison
 
-The computed angle satisfies $0^\circ<60^\circ<90^\circ$. It is acute, in agreement with the prediction from Step 1.
+The computed angle satisfies $0^\circ\lt60^\circ\lt90^\circ$. It is acute, in agreement with the prediction from Step 1.
 
 ---
 
 ## Why it works
 
-The formula $u\cdot v=\|u\|\,\|v\|\cos\theta$ contains two positive lengths, so the sign of $u\cdot v$ equals the sign of $\cos\theta$. On $[0,\pi]$ the sign of the cosine determines the type of angle:
+The formula $u\cdot v=\Vert u\Vert\ \Vert v\Vert\cos\theta$ contains two positive lengths, so the sign of $u\cdot v$ equals the sign of $\cos\theta$. On $[0,\pi]$ the sign of the cosine determines the type of angle:
 
 | Sign of $u\cdot v$ | Sign of $\cos\theta$ | Type of angle |
 |---|---|---|
-| positive | positive | acute, $\theta<90^\circ$ |
+| positive | positive | acute, $\theta\lt90^\circ$ |
 | zero | zero | right, $\theta=90^\circ$ |
-| negative | negative | obtuse, $\theta>90^\circ$ |
+| negative | negative | obtuse, $\theta\gt90^\circ$ |
 
 The sign requires only the dot product, while the exact angle also requires the lengths. The cheaper calculation therefore gives a useful prediction and a check on the final result.
 
@@ -76,7 +76,7 @@ The sign requires only the dot product, while the exact angle also requires the 
 The value $60^\circ$ can be confirmed geometrically. Take the two vectors as sides of a triangle, with third side
 
 $$
-u-v=(0,1,-1),\qquad \|u-v\|=\sqrt2
+u-v=(0,1,-1),\qquad \Vert u-v\Vert=\sqrt2
 $$
 
 All three sides have length $\sqrt2$, so the triangle is equilateral and each of its angles equals $60^\circ$ ✓.

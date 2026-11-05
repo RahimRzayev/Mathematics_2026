@@ -32,7 +32,7 @@ Both checks hold. They are independent because each one can pass while the other
 The parallel component is the projection of $u$ onto $v$:
 
 $$
-u_{\parallel}=\mathrm{proj}_v\,u=\frac{u\cdot v}{v\cdot v}\,v
+u_{\parallel}=\mathrm{proj}_v\ u=\frac{u\cdot v}{v\cdot v}\ v
 $$
 
 The two dot products are
@@ -100,7 +100,7 @@ The direction is correct but the length is wrong, and the dot product cannot det
 The components are the legs of a right triangle with hypotenuse $u$, so the Pythagorean theorem gives a third check:
 
 $$
-\|u_{\parallel}\|^2+\|u_{\perp}\|^2=\frac{121+484}{25}+\frac{16+4}{25}=\frac{625}{25}=25=\|u\|^2\ \checkmark
+\Vert u_{\parallel}\Vert^2+\Vert u_{\perp}\Vert^2=\frac{121+484}{25}+\frac{16+4}{25}=\frac{625}{25}=25=\Vert u\Vert^2\ \checkmark
 $$
 
 The component $u_{\parallel}$ is a multiple of $v$, since its coordinates have the same ratio as those of $v$:

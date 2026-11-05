@@ -67,7 +67,7 @@ The criterion states that, for $n\neq0$, the point $D$ lies in the plane through
 **If $D$ is in the plane, the dot product is $0$.** In this case $\overrightarrow{AD}$ lies in the plane, so it can be written as $s\overrightarrow{AB}+t\overrightarrow{AC}$. The vector $n$ is perpendicular to both $\overrightarrow{AB}$ and $\overrightarrow{AC}$, so
 
 $$
-\overrightarrow{AD}\cdot n=s\,(\overrightarrow{AB}\cdot n)+t\,(\overrightarrow{AC}\cdot n)=0
+\overrightarrow{AD}\cdot n=s\ (\overrightarrow{AB}\cdot n)+t\ (\overrightarrow{AC}\cdot n)=0
 $$
 
 **If the dot product is $0$, $D$ is in the plane.** All vectors perpendicular to $n$ form a plane through the origin in $\mathbb R^3$. The independent vectors $\overrightarrow{AB}$ and $\overrightarrow{AC}$ already span this plane, so $\overrightarrow{AD}$ is a combination of them. Hence $D=A+s\overrightarrow{AB}+t\overrightarrow{AC}$ lies in the plane through $A,B,C$.

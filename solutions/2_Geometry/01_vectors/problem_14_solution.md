@@ -12,7 +12,7 @@ Given a point $P=(4,1)$ and a line through the origin with direction $v=(1,2)$. 
 ## Answer
 
 - Closest point: $Q=\left(\frac65,\frac{12}{5}\right)$.
-- Distance: $\|P-Q\|=\frac{7}{\sqrt5}=\frac{7\sqrt5}{5}\approx3.13$.
+- Distance: $\Vert P-Q\Vert=\frac{7}{\sqrt5}=\frac{7\sqrt5}{5}\approx3.13$.
 - Perpendicularity: $(P-Q)\cdot v=0$.
 
 ---
@@ -24,7 +24,7 @@ Given a point $P=(4,1)$ and a line through the origin with direction $v=(1,2)$. 
 The line passes through the origin, so the point $P$ corresponds to the vector $\overrightarrow{OP}=(4,1)$. The closest point is the projection of this vector onto $v$:
 
 $$
-Q=\mathrm{proj}_v\,P=\frac{P\cdot v}{v\cdot v}\,v
+Q=\mathrm{proj}_v\ P=\frac{P\cdot v}{v\cdot v}\ v
 $$
 
 ### Step 2. The two dot products
@@ -36,7 +36,7 @@ $$
 ### Step 3. Closest point
 
 $$
-Q=\frac65\,(1,2)=\left(\frac65,\frac{12}{5}\right)
+Q=\frac65\ (1,2)=\left(\frac65,\frac{12}{5}\right)
 $$
 
 ### Step 4. Vector from $Q$ to $P$
@@ -48,7 +48,7 @@ $$
 ### Step 5. Distance
 
 $$
-\|P-Q\|=\sqrt{\frac{196}{25}+\frac{49}{25}}=\sqrt{\frac{245}{25}}=\frac{7\sqrt5}{5}=\frac{7}{\sqrt5}
+\Vert P-Q\Vert=\sqrt{\frac{196}{25}+\frac{49}{25}}=\sqrt{\frac{245}{25}}=\frac{7\sqrt5}{5}=\frac{7}{\sqrt5}
 $$
 
 ### Step 6. Perpendicularity
@@ -72,7 +72,7 @@ $$
 the Pythagorean theorem gives
 
 $$
-\|P-X\|^2=\|P-Q\|^2+\|Q-X\|^2\ge\|P-Q\|^2
+\Vert P-X\Vert^2=\Vert P-Q\Vert^2+\Vert Q-X\Vert^2\ge\Vert P-Q\Vert^2
 $$
 
 Equality holds only when $X=Q$. Therefore $Q$ is the unique closest point, and every other point on the line is strictly farther from $P$.
@@ -94,5 +94,5 @@ $$
 A nearby point on the line is farther away. For $X=v=(1,2)$, the distance satisfies
 
 $$
-\|P-X\|^2=3^2+(-1)^2=10>\frac{49}{5}=\|P-Q\|^2\ \checkmark
+\Vert P-X\Vert^2=3^2+(-1)^2=10>\frac{49}{5}=\Vert P-Q\Vert^2\ \checkmark
 $$

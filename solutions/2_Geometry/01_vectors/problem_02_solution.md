@@ -17,7 +17,7 @@ The points are $A=(1,2,3)$ and $B=(4,-2,6)$.
 ## Answer
 
 $$
-\overrightarrow{AB}=(3,-4,3),\qquad \|\overrightarrow{AB}\|=d(A,B)=\sqrt{34}\approx 5.83
+\overrightarrow{AB}=(3,-4,3),\qquad \Vert\overrightarrow{AB}\Vert=d(A,B)=\sqrt{34}\approx 5.83
 $$
 
 Both calculations agree because the coordinates of $\overrightarrow{AB}$ are exactly the coordinate differences that appear in the distance formula.
@@ -37,7 +37,7 @@ $$
 ### Step 2. Length of the vector
 
 $$
-\|\overrightarrow{AB}\|=\sqrt{3^2+(-4)^2+3^2}=\sqrt{9+16+9}=\sqrt{34}
+\Vert\overrightarrow{AB}\Vert=\sqrt{3^2+(-4)^2+3^2}=\sqrt{9+16+9}=\sqrt{34}
 $$
 
 ### Step 3. Coordinate distance formula
@@ -65,7 +65,7 @@ $$
 Substituting these coordinates into the length formula produces the distance formula term by term:
 
 $$
-\|\overrightarrow{AB}\|=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}=d(A,B)
+\Vert\overrightarrow{AB}\Vert=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}=d(A,B)
 $$
 
 The two calculations are therefore one formula written in two ways. The distance between two points is the length of the displacement that carries one point to the other.
@@ -85,5 +85,5 @@ $$
 Distance does not depend on the order of the points. The reversed vector is $\overrightarrow{BA}=(-3,4,-3)$, and
 
 $$
-\|\overrightarrow{BA}\|=\sqrt{9+16+9}=\sqrt{34}\ \checkmark
+\Vert\overrightarrow{BA}\Vert=\sqrt{9+16+9}=\sqrt{34}\ \checkmark
 $$

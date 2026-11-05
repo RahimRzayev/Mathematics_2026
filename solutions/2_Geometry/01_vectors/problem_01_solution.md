@@ -34,7 +34,7 @@ Adding two vectors means performing one displacement after the other. The sum is
 Vector operations are performed coordinate by coordinate:
 
 $$
-(a_1,a_2,a_3)+(b_1,b_2,b_3)=(a_1+b_1,\ a_2+b_2,\ a_3+b_3),\qquad c\,(a_1,a_2,a_3)=(ca_1,\ ca_2,\ ca_3)
+(a_1,a_2,a_3)+(b_1,b_2,b_3)=(a_1+b_1,\ a_2+b_2,\ a_3+b_3),\qquad c\ (a_1,a_2,a_3)=(ca_1,\ ca_2,\ ca_3)
 $$
 
 ### Step 2. Sum

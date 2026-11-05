@@ -36,8 +36,8 @@ The cross product of two vectors is perpendicular to each of them:
 $$
 \begin{aligned}
 \overrightarrow{AB}\times\overrightarrow{AC} &= (1\cdot(-1)-(-2)\cdot3,\ (-2)\cdot(-1)-1\cdot(-1),\ 1\cdot3-1\cdot(-1)) \\
- &= (-1+6,\ 2+1,\ 3+1) \\
- &= (5,3,4)
+&= (-1+6,\ 2+1,\ 3+1) \\
+&= (5,3,4)
 \end{aligned}
 $$
 
@@ -62,7 +62,7 @@ $$
 **Perpendicular to two directions means perpendicular to the plane.** Every vector in the plane is a combination $s\overrightarrow{AB}+t\overrightarrow{AC}$, and
 
 $$
-n\cdot\left(s\overrightarrow{AB}+t\overrightarrow{AC}\right)=s\,(n\cdot\overrightarrow{AB})+t\,(n\cdot\overrightarrow{AC})=0
+n\cdot\left(s\overrightarrow{AB}+t\overrightarrow{AC}\right)=s\ (n\cdot\overrightarrow{AB})+t\ (n\cdot\overrightarrow{AC})=0
 $$
 
 Checking two independent directions therefore covers the entire plane.
